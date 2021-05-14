@@ -232,7 +232,14 @@ public class PixelPerfectCamera : MonoBehaviour {
 	 * Create the output camera.
      */
 	private void createOutputCamera() {
-		this._outputCamera = this.gameObject.AddComponent<Camera>();
+
+		Camera outcam = this.gameObject.GetComponent<Camera>();
+		if (outcam == null)
+			this._outputCamera = this.gameObject.AddComponent<Camera>();
+		else
+			this._outputCamera = outcam;
+		Debug.Log(this._outputCamera);
+		Debug.Log(PixelPerfectCamera.orthographic);
 		this._outputCamera.orthographic = PixelPerfectCamera.orthographic;
 		this._outputCamera.nearClipPlane = PixelPerfectCamera.nearClipPlane;
 		this._outputCamera.farClipPlane = PixelPerfectCamera.farClipPlane;
