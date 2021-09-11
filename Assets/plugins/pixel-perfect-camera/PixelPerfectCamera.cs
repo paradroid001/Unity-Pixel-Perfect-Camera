@@ -367,4 +367,9 @@ public class PixelPerfectCamera : MonoBehaviour {
 			this._virtualBuffer.Create();
 		}
 	}
+
+	public Camera GetOutputCamera()
+	{
+		return _outputCamera;
+	}
 }
